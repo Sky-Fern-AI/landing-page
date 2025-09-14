@@ -39,5 +39,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: skyfernai
           directory: dist
-          # Optional: Use wrangler-version: '3' to specify version
+          # Use wrangler.toml configuration
           wrangler-version: '3'
+          # Optional: Set production environment
+          branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.ref_name }}

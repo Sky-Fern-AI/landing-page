@@ -1,0 +1,26 @@
+name = "skyfernai"
+compatibility_date = "2024-09-14"
+
+[env.production]
+name = "skyfernai"
+compatibility_date = "2024-09-14"
+
+# Pages configuration
+[[pages_build_output_dir]]
+output_dir = "dist"
+
+[build]
+command = "npm run build"
+
+[build.environment_variables]
+NODE_VERSION = "18"
+
+# Custom domains (optional)
+# routes = [
+#   { pattern = "skyfern.ai/*", custom_domain = true }
+# ]
+
+# Environment variables for build process
+[vars]
+# Add any environment variables your build process needs
+# VITE_API_URL = "https://api.skyfern.ai"

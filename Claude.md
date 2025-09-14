@@ -84,6 +84,8 @@ src/
 - Production build optimized for deployment
 - **CI/CD**: Automated deployment to Cloudflare Pages via GitHub Actions
 - **Auto-deploy**: Pushes to main branch trigger production deployment
+- **Wrangler Config**: wrangler.toml for Cloudflare Pages configuration
+- **Dual Workflows**: Both Pages Action and Wrangler CLI deployment options
 
 ### Accessibility
 - WCAG 2.1 AA compliant
