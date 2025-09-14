@@ -9,6 +9,7 @@ This is a modern, animated research-focused landing page for Sky Fern AI's user 
 ```bash
 npm run dev          # Start development server at http://localhost:5173
 npm run build        # Build for production
+npm run build:ci     # CI build with linting
 npm run preview      # Preview production build locally
 npm run lint         # Run ESLint
 ```
@@ -81,6 +82,8 @@ src/
 - Framer Motion for organic animations
 - React Hook Form + Zod validation
 - Production build optimized for deployment
+- **CI/CD**: Automated deployment to Cloudflare Pages via GitHub Actions
+- **Auto-deploy**: Pushes to main branch trigger production deployment
 
 ### Accessibility
 - WCAG 2.1 AA compliant

@@ -1,0 +1,47 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Cloudflare Pages
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'sky-fern-landing/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./sky-fern-landing
+        run: npm ci
+
+      - name: Run lint
+        working-directory: ./sky-fern-landing
+        run: npm run lint
+
+      - name: Build project
+        working-directory: ./sky-fern-landing
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: skyfernai
+          directory: sky-fern-landing/dist
+          # Optional: Use wrangler-version: '3' to specify version
+          wrangler-version: '3'
