@@ -13,10 +13,10 @@ const researchFormSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   role: z.string().min(2, 'Role/title must be at least 2 characters'),
   companySize: z.string().min(1, 'Please select your company size'),
-  frustration: z.string().min(10, 'Please share at least 10 characters about your frustration'),
-  followUpTime: z.string().min(1, 'Please select follow-up time'),
+  researchChallenges: z.string().min(10, 'Please share at least 10 characters about your challenges'),
+  dataTypes: z.array(z.string()).min(1, 'Please select at least one data type'),
   currentTools: z.array(z.string()).min(1, 'Please select at least one tool'),
-  interviewInterest: z.string().min(1, 'Please select your interview interest'),
+  betaInterest: z.string().min(1, 'Please select your beta interest'),
 });
 
 type ResearchFormData = z.infer<typeof researchFormSchema>;
@@ -25,6 +25,7 @@ const ResearchForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
+  const [selectedDataTypes, setSelectedDataTypes] = useState<string[]>([]);
 
   const {
     register,
@@ -44,33 +45,40 @@ const ResearchForm: React.FC = () => {
     { value: '1000+', label: '1000+ employees' },
   ];
 
-  const followUpTimeOptions = [
-    { value: '0-2', label: '0-2 hours per week' },
-    { value: '3-5', label: '3-5 hours per week' },
-    { value: '6-10', label: '6-10 hours per week' },
-    { value: '11-20', label: '11-20 hours per week' },
-    { value: '20+', label: '20+ hours per week' },
+  const dataTypeOptions = [
+    'Meeting recordings', 'Interview transcripts', 'Survey responses',
+    'User feedback', 'Support tickets', 'Documents & PDFs',
+    'Notes & observations', 'Video files', 'Other'
   ];
 
   const toolOptions = [
-    'Zoom', 'Teams', 'Google Meet', 'Slack', 'Notion', 
-    'OneNote', 'Evernote', 'Loom', 'Otter.ai', 'Rev', 
-    'No specific tools', 'Other'
+    'Dovetail', 'LoopPanel', 'Aurelius', 'Miro', 'FigJam',
+    'Notion', 'Airtable', 'Google Sheets', 'Excel', 'Otter.ai',
+    'Rev', 'Zoom', 'No specific tools', 'Other'
   ];
 
-  const interviewOptions = [
-    { value: 'yes', label: 'Yes, I\'d love to participate!' },
-    { value: 'maybe', label: 'Maybe, tell me more first' },
-    { value: 'no', label: 'No, just the form for now' },
+  const betaInterestOptions = [
+    { value: 'immediate', label: 'Yes, sign me up for early access!' },
+    { value: 'interested', label: 'Interested, keep me updated' },
+    { value: 'learning', label: 'Just learning about the product' },
   ];
 
   const handleToolToggle = (tool: string) => {
     const updated = selectedTools.includes(tool)
       ? selectedTools.filter(t => t !== tool)
       : [...selectedTools, tool];
-    
+
     setSelectedTools(updated);
     setValue('currentTools', updated);
+  };
+
+  const handleDataTypeToggle = (dataType: string) => {
+    const updated = selectedDataTypes.includes(dataType)
+      ? selectedDataTypes.filter(t => t !== dataType)
+      : [...selectedDataTypes, dataType];
+
+    setSelectedDataTypes(updated);
+    setValue('dataTypes', updated);
   };
 
   const onSubmit = async (data: ResearchFormData) => {
@@ -79,12 +87,13 @@ const ResearchForm: React.FC = () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
     
-    console.log('Research form data:', { ...data, currentTools: selectedTools });
-    
+    console.log('Beta signup data:', { ...data, currentTools: selectedTools, dataTypes: selectedDataTypes });
+
     setIsSubmitting(false);
     setIsSubmitted(true);
     reset();
     setSelectedTools([]);
+    setSelectedDataTypes([]);
   };
 
   const containerVariants = {
@@ -128,31 +137,30 @@ const ResearchForm: React.FC = () => {
               </motion.div>
 
               <h2 className="text-4xl font-bold text-charcoal-900 mb-6">
-                Thank You! 🎉
+                Welcome to the Waitlist! 🎉
               </h2>
-              
+
               <p className="text-xl text-charcoal-600 mb-8 leading-relaxed">
-                Your insights are invaluable! We'll be in touch within 48 hours with next steps 
-                and updates on our research findings.
+                You're all set! We'll keep you updated on our progress and notify you as soon as beta access is available.
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center p-4 bg-sky-50/50 rounded-2xl">
                   <Users className="h-8 w-8 text-sky-600 mb-2 mx-auto" />
-                  <h4 className="font-semibold mb-1">Community Access</h4>
-                  <p className="text-sm text-charcoal-600">Join our research Slack</p>
+                  <h4 className="font-semibold mb-1">Priority Access</h4>
+                  <p className="text-sm text-charcoal-600">First to try our beta</p>
                 </div>
-                
+
                 <div className="text-center p-4 bg-sky-50/50 rounded-2xl">
                   <Calendar className="h-8 w-8 text-sky-600 mb-2 mx-auto" />
-                  <h4 className="font-semibold mb-1">Regular Updates</h4>
-                  <p className="text-sm text-charcoal-600">Weekly progress emails</p>
+                  <h4 className="font-semibold mb-1">Product Updates</h4>
+                  <p className="text-sm text-charcoal-600">Development progress</p>
                 </div>
-                
+
                 <div className="text-center p-4 bg-sky-50/50 rounded-2xl">
                   <Clock className="h-8 w-8 text-sky-600 mb-2 mx-auto" />
-                  <h4 className="font-semibold mb-1">Early Access</h4>
-                  <p className="text-sm text-charcoal-600">Test features first</p>
+                  <h4 className="font-semibold mb-1">Launch Notification</h4>
+                  <p className="text-sm text-charcoal-600">Be first to know</p>
                 </div>
               </div>
 
@@ -181,10 +189,10 @@ const ResearchForm: React.FC = () => {
         >
           <motion.div className="text-center mb-12" variants={itemVariants}>
             <h2 className="text-4xl lg:text-5xl font-bold text-charcoal-900 mb-6">
-              Tell Us About Your <span className="text-gradient">Meeting Challenges</span>
+              Join the <span className="text-gradient">AI Research Revolution</span>
             </h2>
             <p className="text-xl text-charcoal-600 max-w-3xl mx-auto leading-relaxed">
-              Help us understand your pain points so we can build something you'll actually love to use
+              Get early access to the first AI-native research platform that transforms data into insights automatically
             </p>
           </motion.div>
 
@@ -214,7 +222,7 @@ const ResearchForm: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <Input
                   label="Role/Title *"
-                  placeholder="e.g., Product Manager, CEO, Designer"
+                  placeholder="e.g., UX Researcher, Product Manager, Designer"
                   error={errors.role?.message}
                   {...register('role')}
                 />
@@ -231,31 +239,52 @@ const ResearchForm: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-charcoal-700 mb-2">
-                    What's your biggest meeting frustration? *
+                    What are your biggest research challenges? *
                   </label>
                   <motion.textarea
-                    {...register('frustration')}
+                    {...register('researchChallenges')}
                     className="w-full px-4 py-4 rounded-2xl border-2 border-sky-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors resize-none"
                     rows={4}
-                    placeholder="Tell us what drives you crazy about meetings - missed action items, poor notes, too much follow-up work, etc."
+                    placeholder="Tell us about your pain points - time spent organizing data, finding insights across studies, manual tagging, stakeholder reporting, etc."
                     whileFocus={{ scale: 1.01 }}
                   />
-                  {errors.frustration && (
-                    <p className="mt-2 text-sm text-red-600">{errors.frustration.message}</p>
+                  {errors.researchChallenges && (
+                    <p className="mt-2 text-sm text-red-600">{errors.researchChallenges.message}</p>
                   )}
                 </div>
 
-                <Select
-                  label="How much time do you spend on meeting follow-up weekly? *"
-                  options={followUpTimeOptions}
-                  error={errors.followUpTime?.message}
-                  {...register('followUpTime')}
-                />
+                {/* Data Types */}
+                <div>
+                  <label className="block text-sm font-medium text-charcoal-700 mb-4">
+                    What types of research data do you work with? * (Select all that apply)
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {dataTypeOptions.map((dataType) => (
+                      <motion.button
+                        key={dataType}
+                        type="button"
+                        onClick={() => handleDataTypeToggle(dataType)}
+                        className={`p-3 rounded-2xl border-2 text-sm font-medium transition-all ${
+                          selectedDataTypes.includes(dataType)
+                            ? 'bg-sky-100 border-sky-300 text-sky-800'
+                            : 'bg-white border-sky-200 text-charcoal-600 hover:border-sky-300'
+                        }`}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {dataType}
+                      </motion.button>
+                    ))}
+                  </div>
+                  {errors.dataTypes && (
+                    <p className="mt-2 text-sm text-red-600">{errors.dataTypes.message}</p>
+                  )}
+                </div>
 
                 {/* Current Tools */}
                 <div>
                   <label className="block text-sm font-medium text-charcoal-700 mb-4">
-                    What tools do you currently use for meetings? * (Select all that apply)
+                    What tools do you currently use for research? * (Select all that apply)
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {toolOptions.map((tool) => (
@@ -281,10 +310,10 @@ const ResearchForm: React.FC = () => {
                 </div>
 
                 <Select
-                  label="Would you be interested in a 15-minute user interview? *"
-                  options={interviewOptions}
-                  error={errors.interviewInterest?.message}
-                  {...register('interviewInterest')}
+                  label="How interested are you in trying our beta? *"
+                  options={betaInterestOptions}
+                  error={errors.betaInterest?.message}
+                  {...register('betaInterest')}
                 />
               </div>
 
@@ -299,18 +328,18 @@ const ResearchForm: React.FC = () => {
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
                       <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-3"></div>
-                      Joining Research Community...
+                      Joining Waitlist...
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
-                      Join Our Research Community
+                      Join Beta Waitlist
                       <Send className="ml-2 h-5 w-5" />
                     </div>
                   )}
                 </Button>
 
                 <p className="text-charcoal-500 text-sm mt-4">
-                  Your information helps us build better meeting tools. We'll never spam you.
+                  Join the waitlist for priority access. We'll never spam you.
                 </p>
               </motion.div>
             </form>
