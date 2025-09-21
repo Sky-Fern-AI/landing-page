@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Brain, Clock, BarChart, MessageCircle } from 'lucide-react';
+import { Mic, Tag, Search, TrendingUp, Users, BookOpen, MessageCircle } from 'lucide-react';
 
 const WhyParticipate: React.FC = () => {
   const containerVariants = {
@@ -26,48 +26,66 @@ const WhyParticipate: React.FC = () => {
 
   const benefits = [
     {
-      icon: Zap,
-      title: '10x Faster Insights',
-      subtitle: 'From weeks to hours',
-      description: 'Transform your research workflow with AI that automatically processes, tags, and synthesizes data. What used to take weeks now happens in hours.',
+      icon: Mic,
+      title: 'One-Click User Interviews',
+      subtitle: 'Join instantly, capture everything',
+      description: 'Join Zoom, Teams, or Meet instantly. Automatic transcription with speaker identification. Take notes while AI captures everything else.',
       gradient: 'from-sky-500 to-sky-600',
       bgColor: 'from-sky-50 to-sky-100/50',
       iconBg: 'bg-sky-500',
     },
     {
-      icon: Brain,
-      title: 'AI-Native Intelligence',
-      subtitle: 'Built for research, not retrofitted',
-      description: 'Unlike tools that bolt on AI features, Skyfern is designed from the ground up to understand research data and generate meaningful insights automatically.',
+      icon: Tag,
+      title: 'Smart Auto-Tagging',
+      subtitle: 'Trained on real research sessions',
+      description: 'Trained on thousands of real research sessions. Identifies pain points, needs, and behaviors automatically. Learns your taxonomy over time.',
       gradient: 'from-cyan-500 to-cyan-600',
       bgColor: 'from-cyan-50 to-cyan-100/50',
       iconBg: 'bg-cyan-500',
     },
     {
-      icon: BarChart,
-      title: 'Universal Data Ingestion',
-      subtitle: 'Any source, any format',
-      description: 'Meeting recordings, documents, interviews, surveys - our platform handles it all. Never worry about compatibility or manual data entry again.',
+      icon: Search,
+      title: 'Ask Your Research Anything',
+      subtitle: 'Natural language queries',
+      description: '"What frustrates users about onboarding?" Get instant answers with quotes and sources. No more hunting through transcripts.',
       gradient: 'from-skylight-500 to-skylight-600',
       bgColor: 'from-skylight-50 to-skylight-100/50',
       iconBg: 'bg-skylight-500',
     },
     {
-      icon: Clock,
-      title: 'Natural Language Interface',
-      subtitle: 'Chat with your research data',
-      description: 'Ask questions in plain English and get instant answers with source attribution. "What did users say about checkout?" - get results in seconds.',
+      icon: TrendingUp,
+      title: 'Pattern Detection',
+      subtitle: 'Surface themes across studies',
+      description: 'Surface themes across all your studies. See how user sentiment evolves over time. Spot emerging issues before they become problems.',
       gradient: 'from-sky-600 to-cyan-500',
       bgColor: 'from-sky-50 to-cyan-50/50',
       iconBg: 'bg-gradient-to-r from-sky-600 to-cyan-500',
     },
+    {
+      icon: Users,
+      title: 'Stakeholder Self-Service',
+      subtitle: 'Reduce interruptions',
+      description: 'PMs and designers can explore insights directly. Reduce "quick question" interruptions. Keep everyone aligned on user needs.',
+      gradient: 'from-sky-500 to-sky-600',
+      bgColor: 'from-sky-50 to-sky-100/50',
+      iconBg: 'bg-sky-500',
+    },
+    {
+      icon: BookOpen,
+      title: 'Living Research Repository',
+      subtitle: 'All research in one place',
+      description: 'All your research in one searchable place. From usability tests to diary studies. Build institutional knowledge that lasts.',
+      gradient: 'from-cyan-500 to-cyan-600',
+      bgColor: 'from-cyan-50 to-cyan-100/50',
+      iconBg: 'bg-cyan-500',
+    },
   ];
 
   const stats = [
-    { number: '10x', label: 'Faster Insights', icon: Zap },
-    { number: '87%', label: 'Time Reduction', icon: Clock },
-    { number: '100+', label: 'Data Formats', icon: BarChart },
-    { number: '24/7', label: 'AI Processing', icon: Brain },
+    { number: '10x', label: 'Faster Insights', icon: TrendingUp },
+    { number: '87%', label: 'Time Reduction', icon: Search },
+    { number: '100+', label: 'Data Formats', icon: BookOpen },
+    { number: '24/7', label: 'AI Processing', icon: Users },
   ];
 
   return (
@@ -80,17 +98,20 @@ const WhyParticipate: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-soft border border-cyan-200/50 mb-6">
+            <span className="text-charcoal-700 font-medium">Why Researchers Love Skyfern</span>
+          </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-charcoal-900 mb-6">
-            Why Choose <span className="text-gradient">Skyfern AI</span>?
+            Finally, a Tool That Gets <span className="text-gradient">UX Research</span>
           </h2>
           <p className="text-xl text-charcoal-600 max-w-3xl mx-auto leading-relaxed">
-            Stop wrestling with data and start leading with insights. The first AI research platform that actually understands UX.
+            Stop choosing between LoopPanel's limited repository or Dovetail's manual workflows
           </p>
         </motion.div>
 
         {/* Benefits Grid */}
         <motion.div
-          className="grid lg:grid-cols-2 gap-8 mb-20"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -207,7 +228,7 @@ const WhyParticipate: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Join Beta Waitlist
+              Start Free Trial
             </motion.button>
           </motion.div>
         </motion.div>

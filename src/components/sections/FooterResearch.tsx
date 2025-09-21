@@ -6,11 +6,7 @@ import {
   Twitter,
   Linkedin,
   Github,
-  Cloud,
-  Zap,
-  Brain,
-  Clock,
-  Heart
+  Cloud
 } from 'lucide-react';
 
 const FooterResearch: React.FC = () => {
@@ -115,56 +111,48 @@ const FooterResearch: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Product Features Info */}
+            {/* Footer Links */}
             <motion.div className="lg:col-span-2" variants={itemVariants}>
-              <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20">
-                <h3 className="font-bold text-xl text-white mb-6 flex items-center">
-                  <Brain className="h-6 w-6 mr-3 text-cyan-400" />
-                  Transform Your Research Workflow
-                </h3>
-
-                <p className="text-cloud-200 mb-8 leading-relaxed">
-                  Experience the future of research analysis. From raw data to actionable insights
-                  in minutes, not weeks. Join the waitlist for priority access.
-                </p>
-
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="text-center p-4 bg-white/10 rounded-2xl">
-                    <Zap className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
-                    <h4 className="font-semibold mb-2">10x Faster</h4>
-                    <p className="text-sm text-cloud-200">Automated insight generation</p>
-                  </div>
-
-                  <div className="text-center p-4 bg-white/10 rounded-2xl">
-                    <Brain className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
-                    <h4 className="font-semibold mb-2">AI-Native</h4>
-                    <p className="text-sm text-cloud-200">Built for research intelligence</p>
-                  </div>
-
-                  <div className="text-center p-4 bg-white/10 rounded-2xl">
-                    <Clock className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
-                    <h4 className="font-semibold mb-2">Real-time</h4>
-                    <p className="text-sm text-cloud-200">Instant insights on demand</p>
+              <div className="grid md:grid-cols-4 gap-8">
+                <div>
+                  <h4 className="font-semibold text-white mb-4">Product</h4>
+                  <div className="space-y-3">
+                    <a href="#features" className="block text-cloud-200 hover:text-white transition-colors">Features</a>
+                    <a href="#pricing" className="block text-cloud-200 hover:text-white transition-colors">Pricing</a>
+                    <a href="#security" className="block text-cloud-200 hover:text-white transition-colors">Security</a>
+                    <a href="#api" className="block text-cloud-200 hover:text-white transition-colors">API</a>
                   </div>
                 </div>
 
-                <motion.div
-                  className="text-center"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <motion.button
-                    className="bg-cyan-500 text-charcoal-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-cyan-400 transition-colors duration-300 shadow-soft"
-                    onClick={() => {
-                      const formSection = document.getElementById('research-form');
-                      formSection?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Join Beta Waitlist
-                  </motion.button>
-                </motion.div>
+                <div>
+                  <h4 className="font-semibold text-white mb-4">Company</h4>
+                  <div className="space-y-3">
+                    <a href="#about" className="block text-cloud-200 hover:text-white transition-colors">About</a>
+                    <a href="#blog" className="block text-cloud-200 hover:text-white transition-colors">Blog</a>
+                    <a href="#careers" className="block text-cloud-200 hover:text-white transition-colors">Careers</a>
+                    <a href="mailto:contact@skyfernai.com" className="block text-cloud-200 hover:text-white transition-colors">Contact</a>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-white mb-4">Resources</h4>
+                  <div className="space-y-3">
+                    <a href="#docs" className="block text-cloud-200 hover:text-white transition-colors">Documentation</a>
+                    <a href="#help" className="block text-cloud-200 hover:text-white transition-colors">Help Center</a>
+                    <a href="#community" className="block text-cloud-200 hover:text-white transition-colors">Community</a>
+                    <a href="#status" className="block text-cloud-200 hover:text-white transition-colors">Status</a>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-white mb-4">Legal</h4>
+                  <div className="space-y-3">
+                    <a href="#privacy" className="block text-cloud-200 hover:text-white transition-colors">Privacy</a>
+                    <a href="#terms" className="block text-cloud-200 hover:text-white transition-colors">Terms</a>
+                    <a href="#gdpr" className="block text-cloud-200 hover:text-white transition-colors">GDPR</a>
+                    <a href="#soc2" className="block text-cloud-200 hover:text-white transition-colors">SOC2</a>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -179,20 +167,8 @@ const FooterResearch: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-cloud-300 text-sm">
-              © {currentYear} Sky Fern AI. AI-Native Research Platform.
-            </div>
-
-            <div className="flex items-center space-x-6 text-sm text-cloud-300">
-              <a href="#privacy" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#terms" className="hover:text-white transition-colors">Terms</a>
-              <a href="mailto:contact@skyfernai.com" className="hover:text-white transition-colors">Contact</a>
-            </div>
-
-            <div className="flex items-center space-x-2 text-sm text-cloud-300">
-              <span>Built with</span>
-              <Heart className="h-4 w-4 text-cyan-400 animate-pulse" />
-              <span>and AI intelligence</span>
+            <div className="text-cloud-300 text-sm text-center md:text-left">
+              © {currentYear} Skyfern AI. All rights reserved.
             </div>
           </div>
         </motion.div>

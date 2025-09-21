@@ -100,7 +100,7 @@ const HeroResearch: React.FC = () => {
             variants={itemVariants}
           >
             <div className="w-2 h-2 bg-cyan-500 rounded-full animate-soft-pulse"></div>
-            <span className="text-charcoal-700 font-medium">AI-Native Research Platform</span>
+            <span className="text-charcoal-700 font-medium">🎯 Built by Researchers, for Researchers</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -108,9 +108,8 @@ const HeroResearch: React.FC = () => {
             className="text-5xl lg:text-7xl font-bold leading-tight mb-8"
             variants={itemVariants}
           >
-            <span className="text-charcoal-900">Research Insights at the</span><br />
-            <span className="text-gradient">Speed of Thought</span><br />
-            <span className="text-charcoal-900">with AI</span>
+            <span className="text-charcoal-900">From Interview to Insight in</span><br />
+            <span className="text-gradient">Minutes, Not Weeks</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -118,8 +117,7 @@ const HeroResearch: React.FC = () => {
             className="text-xl lg:text-2xl text-charcoal-600 mb-12 leading-relaxed max-w-3xl mx-auto"
             variants={itemVariants}
           >
-            Transform raw research data into structured insights automatically.
-            The first AI research platform that eliminates data wrangling and focuses on what matters: actionable intelligence.
+            Stop spending 70% of your time on transcription and tagging. Let AI handle the busywork while you focus on what matters: understanding your users.
           </motion.p>
 
           {/* Research Values */}
@@ -128,10 +126,10 @@ const HeroResearch: React.FC = () => {
             variants={containerVariants}
           >
             {[
-              { icon: Zap, title: '10x Faster', desc: 'Insight generation' },
-              { icon: Brain, title: 'AI-Native', desc: 'Built for intelligence' },
-              { icon: Database, title: 'Universal', desc: 'Any data source' },
-              { icon: MessageSquare, title: 'Natural Language', desc: 'Chat with your data' },
+              { icon: Zap, title: '12hrs', desc: 'Saved per Study' },
+              { icon: Brain, title: '87%', desc: 'Researchers Frustrated' },
+              { icon: Database, title: '3-4wks', desc: 'Typical Analysis Time' },
+              { icon: MessageSquare, title: '50k+', desc: 'Sessions Analyzed' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -162,7 +160,7 @@ const HeroResearch: React.FC = () => {
               Ready to Transform Your Research Workflow?
             </h2>
             <p className="text-charcoal-600 mb-6 leading-relaxed">
-              Join the waitlist for early access to the AI research platform that turns weeks of analysis into hours of insights.
+              Start your 14-day free trial. No credit card required. Full access to all features.
             </p>
 
             <motion.div
@@ -179,7 +177,7 @@ const HeroResearch: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Join Waitlist
+                Try Free for 14 Days
               </motion.button>
 
               <motion.button
@@ -191,7 +189,7 @@ const HeroResearch: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Features
+                Watch Demo
               </motion.button>
             </motion.div>
           </motion.div>

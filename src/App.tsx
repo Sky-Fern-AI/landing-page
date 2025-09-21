@@ -3,6 +3,7 @@ import HeroResearch from './components/sections/HeroResearch';
 import ResearchForm from './components/sections/ResearchForm';
 import WhyParticipate from './components/sections/WhyParticipate';
 import OurApproach from './components/sections/OurApproach';
+import Testimonials from './components/sections/Testimonials';
 import FooterResearch from './components/sections/FooterResearch';
 
 function App() {
@@ -26,8 +27,12 @@ function App() {
         <section id="our-approach">
           <OurApproach />
         </section>
+
+        <section id="testimonials">
+          <Testimonials />
+        </section>
       </main>
-      
+
       <FooterResearch />
     </div>
   );

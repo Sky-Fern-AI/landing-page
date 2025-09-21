@@ -4,10 +4,11 @@ import {
   Upload,
   Brain,
   Zap,
+  Mic,
+  Bot,
+  PuzzleIcon,
+  Target,
   ArrowRight,
-  MessageSquare,
-  Database,
-  Search,
   CheckCircle
 } from 'lucide-react';
 
@@ -73,11 +74,10 @@ const OurApproach: React.FC = () => {
   ];
 
   const aiPipeline = [
-    { step: '1', title: 'Ingest', desc: 'Upload any data', icon: Upload },
-    { step: '2', title: 'Process', desc: 'AI analysis', icon: Brain },
-    { step: '3', title: 'Structure', desc: 'Smart organization', icon: Database },
-    { step: '4', title: 'Query', desc: 'Natural language', icon: MessageSquare },
-    { step: '5', title: 'Insights', desc: 'Actionable results', icon: Search },
+    { step: '🎙️', title: 'Conduct', desc: 'Run interviews, usability tests, or upload recordings', icon: Mic },
+    { step: '🤖', title: 'Process', desc: 'AI transcribes, codes, and identifies key moments', icon: Bot },
+    { step: '🧩', title: 'Synthesize', desc: 'Themes emerge, patterns connect across sessions', icon: PuzzleIcon },
+    { step: '🎯', title: 'Share', desc: 'Stakeholders get insights, not raw transcripts', icon: Target },
   ];
 
   return (
@@ -90,12 +90,14 @@ const OurApproach: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-soft border border-sky-200/50 mb-6">
+            <span className="text-charcoal-700 font-medium">Your Research Workflow</span>
+          </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-charcoal-900 mb-6">
-            The <span className="text-gradient">AI Intelligence</span> Pipeline
+            From Raw Data to <span className="text-gradient">Stakeholder Insights</span>
           </h2>
           <p className="text-xl text-charcoal-600 max-w-3xl mx-auto leading-relaxed">
-            See how our AI transforms messy research data into structured insights automatically.
-            From raw data to actionable intelligence in minutes, not weeks.
+            Watch how a 90-minute user interview becomes actionable insights in under 10 minutes
           </p>
         </motion.div>
 
@@ -116,7 +118,7 @@ const OurApproach: React.FC = () => {
             >
               {/* Icon */}
               <motion.div
-                className={`inline-flex p-4 rounded-2xl bg-${approach.color}-500 shadow-soft mb-6`}
+                className={`inline-flex p-4 rounded-2xl ${approach.color === 'sky' ? 'bg-sky-500' : approach.color === 'cyan' ? 'bg-cyan-500' : 'bg-skylight-500'} shadow-soft mb-6`}
                 whileHover={{ rotate: 10, scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
@@ -144,7 +146,7 @@ const OurApproach: React.FC = () => {
                     transition={{ delay: 0.1 * stepIndex }}
                     viewport={{ once: true }}
                   >
-                    <CheckCircle className={`h-4 w-4 text-${approach.color}-500 flex-shrink-0`} />
+                    <CheckCircle className={`h-4 w-4 ${approach.color === 'sky' ? 'text-sky-500' : approach.color === 'cyan' ? 'text-cyan-500' : 'text-skylight-500'} flex-shrink-0`} />
                     <span className="text-charcoal-600 text-sm">{step}</span>
                   </motion.div>
                 ))}
@@ -152,7 +154,7 @@ const OurApproach: React.FC = () => {
 
               {/* Hover Effect */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br from-${approach.color}-400/5 to-${approach.color}-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${approach.color === 'sky' ? 'bg-gradient-to-br from-sky-400/5 to-sky-500/5' : approach.color === 'cyan' ? 'bg-gradient-to-br from-cyan-400/5 to-cyan-500/5' : 'bg-gradient-to-br from-skylight-400/5 to-skylight-500/5'}`}
               />
             </motion.div>
           ))}
@@ -171,12 +173,12 @@ const OurApproach: React.FC = () => {
               How the <span className="text-gradient">AI Pipeline</span> Works
             </h3>
             <p className="text-lg text-charcoal-600 max-w-2xl mx-auto">
-              From raw data to insights in 5 simple steps, powered by advanced AI
+              From raw data to insights in 4 simple steps, powered by advanced AI
             </p>
           </div>
 
           {/* Flow Steps */}
-          <div className="grid md:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-4 gap-8">
             {aiPipeline.map((item, index) => (
               <motion.div
                 key={index}
