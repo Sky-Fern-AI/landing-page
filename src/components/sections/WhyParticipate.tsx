@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Zap, Heart, TrendingUp, MessageCircle, Star } from 'lucide-react';
+import { Zap, Brain, Clock, BarChart, MessageCircle } from 'lucide-react';
 
 const WhyParticipate: React.FC = () => {
   const containerVariants = {
@@ -26,37 +26,37 @@ const WhyParticipate: React.FC = () => {
 
   const benefits = [
     {
-      icon: Users,
-      title: 'Co-Create',
-      subtitle: 'Build exactly what you need',
-      description: 'Your feedback directly shapes our product roadmap. No more tools that miss the mark - help us build exactly what you need for productive meetings.',
+      icon: Zap,
+      title: '10x Faster Insights',
+      subtitle: 'From weeks to hours',
+      description: 'Transform your research workflow with AI that automatically processes, tags, and synthesizes data. What used to take weeks now happens in hours.',
       gradient: 'from-sky-500 to-sky-600',
       bgColor: 'from-sky-50 to-sky-100/50',
       iconBg: 'bg-sky-500',
     },
     {
-      icon: Zap,
-      title: 'Early Access',
-      subtitle: 'Be first to try new features',
-      description: 'Get exclusive access to features as we develop them. Test, provide feedback, and influence the final design before anyone else even knows about it.',
+      icon: Brain,
+      title: 'AI-Native Intelligence',
+      subtitle: 'Built for research, not retrofitted',
+      description: 'Unlike tools that bolt on AI features, Skyfern is designed from the ground up to understand research data and generate meaningful insights automatically.',
       gradient: 'from-cyan-500 to-cyan-600',
       bgColor: 'from-cyan-50 to-cyan-100/50',
       iconBg: 'bg-cyan-500',
     },
     {
-      icon: Heart,
-      title: 'Community',
-      subtitle: 'Connect with like-minded professionals',
-      description: 'Join a community of forward-thinking professionals who share your meeting challenges. Exchange ideas, solutions, and build valuable connections.',
+      icon: BarChart,
+      title: 'Universal Data Ingestion',
+      subtitle: 'Any source, any format',
+      description: 'Meeting recordings, documents, interviews, surveys - our platform handles it all. Never worry about compatibility or manual data entry again.',
       gradient: 'from-skylight-500 to-skylight-600',
       bgColor: 'from-skylight-50 to-skylight-100/50',
       iconBg: 'bg-skylight-500',
     },
     {
-      icon: TrendingUp,
-      title: 'Influence',
-      subtitle: 'Help define the future',
-      description: 'Your insights help shape the future of meeting productivity. Be part of something bigger than just another software tool - be part of the solution.',
+      icon: Clock,
+      title: 'Natural Language Interface',
+      subtitle: 'Chat with your research data',
+      description: 'Ask questions in plain English and get instant answers with source attribution. "What did users say about checkout?" - get results in seconds.',
       gradient: 'from-sky-600 to-cyan-500',
       bgColor: 'from-sky-50 to-cyan-50/50',
       iconBg: 'bg-gradient-to-r from-sky-600 to-cyan-500',
@@ -64,10 +64,10 @@ const WhyParticipate: React.FC = () => {
   ];
 
   const stats = [
-    { number: '200+', label: 'Research Participants', icon: Users },
-    { number: '15', label: 'Features Co-Created', icon: Star },
-    { number: '45min', label: 'Average Time Saved', icon: TrendingUp },
-    { number: '98%', label: 'Would Recommend', icon: Heart },
+    { number: '10x', label: 'Faster Insights', icon: Zap },
+    { number: '87%', label: 'Time Reduction', icon: Clock },
+    { number: '100+', label: 'Data Formats', icon: BarChart },
+    { number: '24/7', label: 'AI Processing', icon: Brain },
   ];
 
   return (
@@ -81,10 +81,10 @@ const WhyParticipate: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-charcoal-900 mb-6">
-            Why <span className="text-gradient">Participate</span> in Our Research?
+            Why Choose <span className="text-gradient">Skyfern AI</span>?
           </h2>
           <p className="text-xl text-charcoal-600 max-w-3xl mx-auto leading-relaxed">
-            Be more than a user. Be a co-creator in building the meeting tool that actually solves your problems.
+            Stop wrestling with data and start leading with insights. The first AI research platform that actually understands UX.
           </p>
         </motion.div>
 
@@ -153,10 +153,10 @@ const WhyParticipate: React.FC = () => {
         >
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-charcoal-900 mb-4">
-              Join a Growing <span className="text-gradient">Research Community</span>
+              Powered by <span className="text-gradient">AI Intelligence</span>
             </h3>
             <p className="text-lg text-charcoal-600">
-              Here's what our research participants have helped us achieve so far
+              Built from the ground up to understand research data and generate actionable insights
             </p>
           </div>
 
@@ -195,7 +195,7 @@ const WhyParticipate: React.FC = () => {
             <div className="flex items-center justify-center space-x-3 mb-4">
               <MessageCircle className="h-6 w-6 text-sky-600" />
               <p className="text-lg text-charcoal-700 font-medium">
-                Ready to make your voice heard?
+                Ready to transform your research workflow?
               </p>
             </div>
             <motion.button
@@ -207,7 +207,7 @@ const WhyParticipate: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Join the Research Community
+              Join Beta Waitlist
             </motion.button>
           </motion.div>
         </motion.div>

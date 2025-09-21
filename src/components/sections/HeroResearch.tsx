@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, MessageSquare, Lightbulb, Heart } from 'lucide-react';
+import { Zap, Brain, Database, MessageSquare } from 'lucide-react';
 
 const HeroResearch: React.FC = () => {
   const containerVariants = {
@@ -100,7 +100,7 @@ const HeroResearch: React.FC = () => {
             variants={itemVariants}
           >
             <div className="w-2 h-2 bg-cyan-500 rounded-full animate-soft-pulse"></div>
-            <span className="text-charcoal-700 font-medium">Currently in Research & Development</span>
+            <span className="text-charcoal-700 font-medium">AI-Native Research Platform</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -108,9 +108,9 @@ const HeroResearch: React.FC = () => {
             className="text-5xl lg:text-7xl font-bold leading-tight mb-8"
             variants={itemVariants}
           >
-            <span className="text-charcoal-900">Help Us Build the</span><br />
-            <span className="text-gradient">Meeting Tool</span><br />
-            <span className="text-charcoal-900">You Actually Want</span>
+            <span className="text-charcoal-900">Research Insights at the</span><br />
+            <span className="text-gradient">Speed of Thought</span><br />
+            <span className="text-charcoal-900">with AI</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -118,8 +118,8 @@ const HeroResearch: React.FC = () => {
             className="text-xl lg:text-2xl text-charcoal-600 mb-12 leading-relaxed max-w-3xl mx-auto"
             variants={itemVariants}
           >
-            Join our user research community and shape the future of meeting productivity. 
-            Your insights drive our development.
+            Transform raw research data into structured insights automatically.
+            The first AI research platform that eliminates data wrangling and focuses on what matters: actionable intelligence.
           </motion.p>
 
           {/* Research Values */}
@@ -128,10 +128,10 @@ const HeroResearch: React.FC = () => {
             variants={containerVariants}
           >
             {[
-              { icon: Users, title: 'Co-Create', desc: 'Build together' },
-              { icon: MessageSquare, title: 'Your Voice', desc: 'Direct input' },
-              { icon: Lightbulb, title: 'Early Access', desc: 'Try first' },
-              { icon: Heart, title: 'Community', desc: 'Connect & share' },
+              { icon: Zap, title: '10x Faster', desc: 'Insight generation' },
+              { icon: Brain, title: 'AI-Native', desc: 'Built for intelligence' },
+              { icon: Database, title: 'Universal', desc: 'Any data source' },
+              { icon: MessageSquare, title: 'Natural Language', desc: 'Chat with your data' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -159,13 +159,12 @@ const HeroResearch: React.FC = () => {
             variants={itemVariants}
           >
             <h2 className="text-2xl font-bold text-charcoal-900 mb-4">
-              Ready to Share Your Meeting Challenges?
+              Ready to Transform Your Research Workflow?
             </h2>
             <p className="text-charcoal-600 mb-6 leading-relaxed">
-              Join hundreds of professionals helping us understand what makes meetings 
-              productive. Your input shapes every feature we build.
+              Join the waitlist for early access to the AI research platform that turns weeks of analysis into hours of insights.
             </p>
-            
+
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               whileHover={{ scale: 1.02 }}
@@ -180,9 +179,9 @@ const HeroResearch: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Share Your Pain Points
+                Join Waitlist
               </motion.button>
-              
+
               <motion.button
                 className="btn-secondary px-8 py-4 text-lg font-semibold"
                 onClick={() => {
@@ -192,7 +191,7 @@ const HeroResearch: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Learn More
+                See Features
               </motion.button>
             </motion.div>
           </motion.div>

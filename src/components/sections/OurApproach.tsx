@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  RefreshCw, 
-  Eye, 
-  ArrowRight, 
-  MessageSquare, 
-  Code, 
-  TestTube,
-  CheckCircle 
+import {
+  Upload,
+  Brain,
+  Zap,
+  ArrowRight,
+  MessageSquare,
+  Database,
+  Search,
+  CheckCircle
 } from 'lucide-react';
 
 const OurApproach: React.FC = () => {
@@ -35,49 +35,49 @@ const OurApproach: React.FC = () => {
 
   const approaches = [
     {
-      icon: Users,
-      title: 'User-Driven Development',
-      description: 'Every feature starts with real user problems. We don\'t build what we think you need - we build what you tell us you need.',
+      icon: Upload,
+      title: 'Universal Data Ingestion',
+      description: 'Our AI handles any research data format - from live meeting recordings to legacy documents. No manual preprocessing required.',
       process: [
-        'Research user pain points',
-        'Validate problem importance',
-        'Co-design solutions',
-        'Test with real workflows'
+        'Live meeting transcription',
+        'Document & PDF processing',
+        'Audio/video file analysis',
+        'Survey & feedback import'
       ],
       color: 'sky',
     },
     {
-      icon: RefreshCw,
-      title: 'Iterative Building',
-      description: 'We build in small, testable pieces. You see progress weekly, provide feedback constantly, and influence direction continuously.',
+      icon: Brain,
+      title: 'AI-Native Processing',
+      description: 'Built from the ground up for research analysis. Our models understand context, sentiment, and patterns humans might miss.',
       process: [
-        'Weekly progress updates',
-        'Rapid prototyping',
-        'Continuous feedback loops',
-        'Quick pivots when needed'
+        'Contextual auto-tagging',
+        'Semantic clustering',
+        'Cross-study pattern recognition',
+        'Sentiment & intent analysis'
       ],
       color: 'cyan',
     },
     {
-      icon: Eye,
-      title: 'Transparent Process',
-      description: 'No black boxes. You see our roadmap, know what we\'re building, why we\'re building it, and how your feedback shaped decisions.',
+      icon: Zap,
+      title: 'Instant Intelligence',
+      description: 'Get insights as fast as you can think of questions. Natural language queries with source attribution and confidence scores.',
       process: [
-        'Open development roadmap',
-        'Regular community calls',
-        'Feature decision explanations',
-        'Impact tracking & reporting'
+        'Chat with your data',
+        'Real-time synthesis',
+        'Source attribution',
+        'Executive summaries'
       ],
       color: 'skylight',
     },
   ];
 
-  const developmentFlow = [
-    { step: '1', title: 'Listen', desc: 'Collect user insights', icon: MessageSquare },
-    { step: '2', title: 'Design', desc: 'Co-create solutions', icon: Users },
-    { step: '3', title: 'Build', desc: 'Rapid development', icon: Code },
-    { step: '4', title: 'Test', desc: 'User validation', icon: TestTube },
-    { step: '5', title: 'Improve', desc: 'Iterate & refine', icon: RefreshCw },
+  const aiPipeline = [
+    { step: '1', title: 'Ingest', desc: 'Upload any data', icon: Upload },
+    { step: '2', title: 'Process', desc: 'AI analysis', icon: Brain },
+    { step: '3', title: 'Structure', desc: 'Smart organization', icon: Database },
+    { step: '4', title: 'Query', desc: 'Natural language', icon: MessageSquare },
+    { step: '5', title: 'Insights', desc: 'Actionable results', icon: Search },
   ];
 
   return (
@@ -91,11 +91,11 @@ const OurApproach: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-charcoal-900 mb-6">
-            Our <span className="text-gradient">Development</span> Approach
+            The <span className="text-gradient">AI Intelligence</span> Pipeline
           </h2>
           <p className="text-xl text-charcoal-600 max-w-3xl mx-auto leading-relaxed">
-            We're not just building software. We're building a partnership with you to create 
-            the meeting productivity tool that actually works.
+            See how our AI transforms messy research data into structured insights automatically.
+            From raw data to actionable intelligence in minutes, not weeks.
           </p>
         </motion.div>
 
@@ -168,16 +168,16 @@ const OurApproach: React.FC = () => {
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-charcoal-900 mb-4">
-              How We Build <span className="text-gradient">Together</span>
+              How the <span className="text-gradient">AI Pipeline</span> Works
             </h3>
             <p className="text-lg text-charcoal-600 max-w-2xl mx-auto">
-              Our development process puts you at the center of every decision
+              From raw data to insights in 5 simple steps, powered by advanced AI
             </p>
           </div>
 
           {/* Flow Steps */}
           <div className="grid md:grid-cols-5 gap-6">
-            {developmentFlow.map((item, index) => (
+            {aiPipeline.map((item, index) => (
               <motion.div
                 key={index}
                 className="text-center relative"
@@ -205,7 +205,7 @@ const OurApproach: React.FC = () => {
                 <p className="text-sm text-charcoal-600">{item.desc}</p>
 
                 {/* Arrow (except for last item) */}
-                {index < developmentFlow.length - 1 && (
+                {index < aiPipeline.length - 1 && (
                   <motion.div
                     className="hidden md:block absolute top-8 left-full w-full"
                     animate={{ x: [0, 5, 0] }}
@@ -224,10 +224,10 @@ const OurApproach: React.FC = () => {
             variants={itemVariants}
           >
             <h4 className="text-xl font-bold text-charcoal-900 mb-4">
-              Ready to be part of this process?
+              Ready to experience the future of research?
             </h4>
             <p className="text-charcoal-600 mb-6">
-              Your insights don't just inform our decisions - they drive them.
+              Join the waitlist and be among the first to transform your research workflow with AI.
             </p>
             <motion.button
               className="btn-primary px-8 py-4 text-lg"
@@ -238,7 +238,7 @@ const OurApproach: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Collaborating With Us
+              Get Early Access
             </motion.button>
           </motion.div>
         </motion.div>

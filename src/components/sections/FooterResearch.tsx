@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Mail, 
-  MessageSquare, 
-  Twitter, 
-  Linkedin, 
+import {
+  Mail,
+  MessageSquare,
+  Twitter,
+  Linkedin,
   Github,
   Cloud,
-  Users,
-  Calendar,
-  Shield,
+  Zap,
+  Brain,
+  Clock,
   Heart
 } from 'lucide-react';
 
@@ -74,18 +74,18 @@ const FooterResearch: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">Sky Fern AI</div>
-                  <div className="text-sm text-sky-200 font-medium">Research & Development</div>
+                  <div className="text-sm text-sky-200 font-medium">AI-Native Research Platform</div>
                 </div>
               </div>
 
               <p className="text-cloud-200 mb-6 leading-relaxed">
-                We're building the meeting productivity tool that actually solves your problems. 
-                Join our research community and help us get it right.
+                Transform raw research data into structured insights automatically.
+                The first AI research platform that eliminates data wrangling.
               </p>
 
               <div className="flex items-center space-x-2 mb-6 p-4 bg-white/10 rounded-2xl backdrop-blur">
                 <div className="w-3 h-3 bg-cyan-400 rounded-full animate-soft-pulse"></div>
-                <span className="text-cloud-200 text-sm">Currently in active development</span>
+                <span className="text-cloud-200 text-sm">Beta launching Q1 2025</span>
               </div>
 
               <div className="flex items-center space-x-2 mb-6">
@@ -115,36 +115,36 @@ const FooterResearch: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Research Community Info */}
+            {/* Product Features Info */}
             <motion.div className="lg:col-span-2" variants={itemVariants}>
               <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20">
                 <h3 className="font-bold text-xl text-white mb-6 flex items-center">
-                  <Users className="h-6 w-6 mr-3 text-cyan-400" />
-                  Join Our Research Community
+                  <Brain className="h-6 w-6 mr-3 text-cyan-400" />
+                  Transform Your Research Workflow
                 </h3>
-                
+
                 <p className="text-cloud-200 mb-8 leading-relaxed">
-                  Be part of building the meeting tool that actually works. Your insights directly 
-                  shape our product development and help solve real meeting productivity challenges.
+                  Experience the future of research analysis. From raw data to actionable insights
+                  in minutes, not weeks. Join the waitlist for priority access.
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="text-center p-4 bg-white/10 rounded-2xl">
-                    <Calendar className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
-                    <h4 className="font-semibold mb-2">Weekly Updates</h4>
-                    <p className="text-sm text-cloud-200">See progress and provide feedback</p>
+                    <Zap className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
+                    <h4 className="font-semibold mb-2">10x Faster</h4>
+                    <p className="text-sm text-cloud-200">Automated insight generation</p>
                   </div>
-                  
+
                   <div className="text-center p-4 bg-white/10 rounded-2xl">
-                    <MessageSquare className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
-                    <h4 className="font-semibold mb-2">Direct Input</h4>
-                    <p className="text-sm text-cloud-200">Your voice shapes our decisions</p>
+                    <Brain className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
+                    <h4 className="font-semibold mb-2">AI-Native</h4>
+                    <p className="text-sm text-cloud-200">Built for research intelligence</p>
                   </div>
-                  
+
                   <div className="text-center p-4 bg-white/10 rounded-2xl">
-                    <Shield className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
-                    <h4 className="font-semibold mb-2">Early Access</h4>
-                    <p className="text-sm text-cloud-200">Try features before anyone else</p>
+                    <Clock className="h-8 w-8 text-cyan-400 mb-3 mx-auto" />
+                    <h4 className="font-semibold mb-2">Real-time</h4>
+                    <p className="text-sm text-cloud-200">Instant insights on demand</p>
                   </div>
                 </div>
 
@@ -162,7 +162,7 @@ const FooterResearch: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Share Your Meeting Challenges
+                    Join Beta Waitlist
                   </motion.button>
                 </motion.div>
               </div>
@@ -180,7 +180,7 @@ const FooterResearch: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-cloud-300 text-sm">
-              © {currentYear} Sky Fern AI. Currently in research & development phase.
+              © {currentYear} Sky Fern AI. AI-Native Research Platform.
             </div>
 
             <div className="flex items-center space-x-6 text-sm text-cloud-300">
@@ -192,7 +192,7 @@ const FooterResearch: React.FC = () => {
             <div className="flex items-center space-x-2 text-sm text-cloud-300">
               <span>Built with</span>
               <Heart className="h-4 w-4 text-cyan-400 animate-pulse" />
-              <span>and user feedback</span>
+              <span>and AI intelligence</span>
             </div>
           </div>
         </motion.div>

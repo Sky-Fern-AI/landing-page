@@ -1,13 +1,8 @@
 name = "skyfernai"
 compatibility_date = "2024-09-14"
 
-[env.production]
-name = "skyfernai"
-compatibility_date = "2024-09-14"
-
 # Pages configuration
-[[pages_build_output_dir]]
-output_dir = "dist"
+pages_build_output_dir = "dist"
 
 [build]
 command = "npm run build"
