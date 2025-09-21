@@ -4,18 +4,12 @@ compatibility_date = "2024-09-14"
 # Pages configuration
 pages_build_output_dir = "dist"
 
-[build]
-command = "npm run build"
-
-[build.environment_variables]
-NODE_VERSION = "18"
-
 # Custom domains (optional)
 # routes = [
 #   { pattern = "skyfern.ai/*", custom_domain = true }
 # ]
 
-# Environment variables for build process
+# Environment variables for runtime
 [vars]
-# Add any environment variables your build process needs
+# Add any environment variables your app needs at runtime
 # VITE_API_URL = "https://api.skyfern.ai"
