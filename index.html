@@ -1,13 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sky Fern AI - Record user interviews. Get research docs automatically.</title>
-    <meta name="description" content="Stop spending hours writing research notes. Sky Fern AI turns your user interviews into comprehensive research documentation while you focus on the conversation." />
+    <title>
+      Sky Fern AI - Record user interviews. Get research docs automatically.
+    </title>
+    <meta
+      name="description"
+      content="Stop spending hours writing research notes. Sky Fern AI turns your user interviews into comprehensive research documentation while you focus on the conversation."
+    />
   </head>
   <body class="dark">
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DDK3FNDLC0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-DDK3FNDLC0");
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

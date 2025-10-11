@@ -27,7 +27,6 @@ import { motion } from "framer-motion";
 import { FlipWords } from "./components/ui/textflip";
 import { EvervaultCard } from "./components/ui/evervault-card";
 import { SiZoom, SiNotion, SiGooglemeet } from "react-icons/si";
-import { FaMicrosoft, FaGoogle } from "react-icons/fa";
 import { BsMicrosoftTeams } from "react-icons/bs";
 
 export default function App() {
