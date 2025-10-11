@@ -28,6 +28,8 @@ import { FlipWords } from "./components/ui/textflip";
 import { EvervaultCard } from "./components/ui/evervault-card";
 import { SiZoom, SiNotion, SiGooglemeet } from "react-icons/si";
 import { BsMicrosoftTeams } from "react-icons/bs";
+import { addToWaitlist } from "./lib/supabase";
+import { formRateLimiter, backoffHandler, validateFormData, sanitizeInput } from "./lib/rateLimiter";
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -45,17 +47,65 @@ export default function App() {
     setIsLoading(true);
     setError(null);
 
-    // Simulate API call for static demo
-    console.log("Form submitted:", formData);
+    try {
+      // Client-side rate limiting check
+      const rateLimitCheck = formRateLimiter.canAttempt('waitlist_submission');
+      if (!rateLimitCheck.allowed) {
+        setError(rateLimitCheck.message || 'Too many attempts. Please wait before trying again.');
+        setIsLoading(false);
+        return;
+      }
 
-    setTimeout(() => {
-      setIsSubmitted(true);
+      // Sanitize and validate form data
+      const sanitizedData = {
+        name: sanitizeInput.name(formData.name),
+        email: sanitizeInput.email(formData.email),
+        company: sanitizeInput.company(formData.company),
+        role: sanitizeInput.role(formData.role),
+      };
+
+      const validation = validateFormData(sanitizedData);
+      if (!validation.isValid) {
+        setError(validation.errors[0]); // Show first error
+        setIsLoading(false);
+        return;
+      }
+
+      // Submit with exponential backoff
+      const result = await backoffHandler.execute(async () => {
+        return await addToWaitlist(sanitizedData);
+      });
+
+      if (result.success) {
+        console.log("Successfully added to waitlist:", result.data);
+        setIsSubmitted(true);
+        
+        // Reset form and backoff handler on success
+        backoffHandler.reset();
+        
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: "", email: "", company: "", role: "" });
+        }, 5000);
+      } else {
+        setError(result.error || "Failed to join waitlist. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      
+      // Handle specific error types
+      if (error instanceof Error) {
+        if (error.message.includes('Max retry attempts')) {
+          setError("Service is temporarily unavailable. Please try again in a few minutes.");
+        } else {
+          setError("An unexpected error occurred. Please try again.");
+        }
+      } else {
+        setError("An unexpected error occurred. Please try again.");
+      }
+    } finally {
       setIsLoading(false);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: "", email: "", company: "", role: "" });
-      }, 5000);
-    }, 1000);
+    }
   };
 
   return (
