@@ -29,7 +29,12 @@ import { EvervaultCard } from "./components/ui/evervault-card";
 import { SiZoom, SiNotion, SiGooglemeet } from "react-icons/si";
 import { BsMicrosoftTeams } from "react-icons/bs";
 import { addToWaitlist } from "./lib/supabase";
-import { formRateLimiter, backoffHandler, validateFormData, sanitizeInput } from "./lib/rateLimiter";
+import {
+  formRateLimiter,
+  backoffHandler,
+  validateFormData,
+  sanitizeInput,
+} from "./lib/rateLimiter";
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -49,9 +54,12 @@ export default function App() {
 
     try {
       // Client-side rate limiting check
-      const rateLimitCheck = formRateLimiter.canAttempt('waitlist_submission');
+      const rateLimitCheck = formRateLimiter.canAttempt("waitlist_submission");
       if (!rateLimitCheck.allowed) {
-        setError(rateLimitCheck.message || 'Too many attempts. Please wait before trying again.');
+        setError(
+          rateLimitCheck.message ||
+            "Too many attempts. Please wait before trying again."
+        );
         setIsLoading(false);
         return;
       }
@@ -79,10 +87,10 @@ export default function App() {
       if (result.success) {
         console.log("Successfully added to waitlist:", result.data);
         setIsSubmitted(true);
-        
+
         // Reset form and backoff handler on success
         backoffHandler.reset();
-        
+
         setTimeout(() => {
           setIsSubmitted(false);
           setFormData({ name: "", email: "", company: "", role: "" });
@@ -92,11 +100,13 @@ export default function App() {
       }
     } catch (error) {
       console.error("Submission error:", error);
-      
+
       // Handle specific error types
       if (error instanceof Error) {
-        if (error.message.includes('Max retry attempts')) {
-          setError("Service is temporarily unavailable. Please try again in a few minutes.");
+        if (error.message.includes("Max retry attempts")) {
+          setError(
+            "Service is temporarily unavailable. Please try again in a few minutes."
+          );
         } else {
           setError("An unexpected error occurred. Please try again.");
         }
@@ -192,7 +202,7 @@ export default function App() {
                 <Card className="p-8 bg-card/95 backdrop-blur-sm border-0 relative overflow-hidden">
                   {/* Background gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
-                  
+
                   <div className="relative z-10">
                     <div className="flex items-center gap-2 mb-2">
                       <Sparkles className="w-5 h-5 text-primary" />
@@ -212,7 +222,7 @@ export default function App() {
                           type="text"
                           placeholder="Full name"
                           value={formData.name}
-                          onChange={(e) =>
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setFormData({ ...formData, name: e.target.value })
                           }
                           required
@@ -228,7 +238,7 @@ export default function App() {
                           type="email"
                           placeholder="Work email"
                           value={formData.email}
-                          onChange={(e) =>
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setFormData({ ...formData, email: e.target.value })
                           }
                           required
@@ -244,8 +254,11 @@ export default function App() {
                           type="text"
                           placeholder="Company"
                           value={formData.company}
-                          onChange={(e) =>
-                            setFormData({ ...formData, company: e.target.value })
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                            setFormData({
+                              ...formData,
+                              company: e.target.value,
+                            })
                           }
                           required
                           disabled={isLoading || isSubmitted}
@@ -260,7 +273,7 @@ export default function App() {
                           type="text"
                           placeholder="Role (e.g., UX Researcher, Product Manager)"
                           value={formData.role}
-                          onChange={(e) =>
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setFormData({ ...formData, role: e.target.value })
                           }
                           disabled={isLoading || isSubmitted}
@@ -268,7 +281,7 @@ export default function App() {
                         />
                       </div>
                       {error && (
-                        <motion.p 
+                        <motion.p
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded-md p-2"
