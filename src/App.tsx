@@ -160,36 +160,46 @@ export default function App() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance leading-tight">
-                <span className="inline-block px-3 py-1.5 bg-background/80 border-2 border-primary/60 rounded-[4px] backdrop-blur-sm min-w-[200px] md:min-w-[260px] text-center shadow-[2px_2px_0px_0px_rgba(var(--primary-rgb),0.3),-1px_-1px_0px_0px_rgba(var(--primary-rgb),0.2)] [transform:rotate(-0.5deg)]">
+                <span className="inline-block px-4 py-3 bg-yellow-200 border-t-2 border-l-2 border-r-2 border-dashed border-yellow-400 rounded-sm min-w-[200px] md:min-w-[260px] text-center shadow-[3px_3px_8px_rgba(0,0,0,0.2)] [transform:rotate(-1deg)] relative before:content-[''] before:absolute before:top-1 before:left-1/2 before:w-4 before:h-4 before:bg-yellow-300 before:rounded-full before:shadow-inner before:transform before:-translate-x-1/2">
                   <FlipWords
                     words={[
-                      "User Interviews",
-                      "PDFs",
-                      "Meetings",
-                      "Conversations",
+                      "• User Interviews",
+                      "• PDFs",
+                      "• Meetings",
+                      "• Conversations",
                     ]}
-                    className="text-primary"
+                    className="dark:text-gray-800 font-handwriting"
                   />
                 </span>{" "}
                 to{" "}
-                <span className="inline-block px-3 py-1.5 bg-background/80 border-2 border-primary/60 rounded-[4px] backdrop-blur-sm min-w-[240px] md:min-w-[340px] text-center shadow-[2px_2px_0px_0px_rgba(var(--primary-rgb),0.3),-1px_-1px_0px_0px_rgba(var(--primary-rgb),0.2)] [transform:rotate(0.5deg)]">
+                <span className="inline-block px-4 py-3 bg-pink-200 border-t-2 border-l-2 border-r-2 border-dashed border-pink-400 rounded-sm min-w-[240px] md:min-w-[340px] text-center shadow-lg [transform:rotate(1deg)] relative before:content-[''] before:absolute before:top-1 before:left-1/2 before:w-4 before:h-4 before:bg-pink-300 before:rounded-full before:shadow-inner before:transform before:-translate-x-1/2">
                   <FlipWords
                     words={[
-                      "Affinity Maps",
-                      "Insights",
-                      "User Personas",
-                      "Minutes",
-                      "UX Journey",
+                      "~ Affinity Maps.",
+                      "~ Insights.",
+                      "~ User Personas.",
+                      "~ Meeting Minutes.",
+                      "~ UX Journey.",
                     ]}
-                    className="text-primary"
+                    className="dark:text-gray-800 font-handwriting"
                   />
                 </span>
-                , 10x faster
+                <br></br>
+                10x faster.
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground text-pretty leading-relaxed mb-8">
-                Discover high quality user insights in minutes, without the
-                manual work. Let Sky Fern AI handle the busywork so you can
-                focus on understanding your users.
+                Transform
+                <span className="bg-primary/30 text-primary font-medium px-2 py-1 rounded-md mx-1 inline-block">
+                  User Interviews
+                </span>
+                into actionable
+                <span className="bg-primary/30 text-primary font-medium px-2 py-1 rounded-md mx-1 inline-block">
+                  {" "}
+                  Insights
+                </span>{" "}
+                with AI-powered analysis. From transcription to themes and
+                recommendations - all automated so UX researchers can focus on
+                strategic decisions.
               </p>
             </motion.div>
 
@@ -568,7 +578,7 @@ export default function App() {
                   "Reports",
                   "Knowledge",
                 ]}
-                className="text-primary"
+                className="text-primary dark:text-primary"
               />{" "}
               in three steps
             </h2>

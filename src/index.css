@@ -15,7 +15,7 @@
   --secondary-foreground: 0 0% 98%;
   --muted: 0 0% 15%;
   --muted-foreground: 240 5% 64.9%;
-  --accent: 12 6.5% 15.1%;
+  --accent: 201 100% 6%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 85.7% 97.3%;
@@ -30,12 +30,18 @@
   --radius: 0.75rem;
 }
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-handwriting {
+    font-family: 'Caveat', 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-weight: 500;
   }
 }
