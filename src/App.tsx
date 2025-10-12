@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "./components/ui/button";
+import { Button } from "./components/ui/button.tsx";
 import { Card } from "./components/ui/card";
-import { Input } from "./components/ui/input";
+import { Input } from "./components/ui/input.tsx";
 import { Spotlight } from "./components/ui/spotlight";
 import { GridBackground } from "./components/ui/grid-background";
 import { MovingBorder } from "./components/ui/moving-border";
