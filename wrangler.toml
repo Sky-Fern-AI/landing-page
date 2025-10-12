@@ -12,4 +12,5 @@ pages_build_output_dir = "dist"
 # Environment variables for runtime
 [vars]
 # Add any environment variables your app needs at runtime
-# VITE_API_URL = "https://api.skyfern.ai"
+VITE_SUPABASE_URL = 'https://tokmfzaqdtowreidxdwc.supabase.co'
+VITE_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRva21memFxZHRvd3JlaWR4ZHdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAxNDE4NTIsImV4cCI6MjA3NTcxNzg1Mn0.TnIFWnM73EdEG2yGGTQWx2pw9c8Sg0SfTq6LHMSG0wo'
