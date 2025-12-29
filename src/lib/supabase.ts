@@ -1,10 +1,5 @@
-import { createClient } from '@supabase/supabase-js'
-
-// Hardcoded Supabase values
-const supabaseUrl = 'https://tokmfzaqdtowreidxdwc.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRva21memFxZHRvd3JlaWR4ZHdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAxNDE4NTIsImV4cCI6MjA3NTcxNzg1Mn0.TnIFWnM73EdEG2yGGTQWx2pw9c8Sg0SfTq6LHMSG0wo'
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Webhook URL for form submissions
+const WEBHOOK_URL = 'https://n8n.pingerchips.com/webhook-test/apply-form'
 
 // Types for our waitlist table
 export interface WaitlistEntry {
@@ -43,30 +38,34 @@ export async function addToWaitlist(data: Omit<WaitlistEntry, 'id' | 'created_at
       user_agent: userAgent,
     };
 
-    const { data: result, error } = await supabase
-      .from('waitlist')
-      .insert([enhancedData])
-      .select()
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(enhancedData),
+    });
 
-    if (error) {
-      console.error('Supabase error:', error);
+    if (!response.ok) {
+      console.error('Webhook error:', response.status, response.statusText);
 
       // Parse specific error messages for better UX
-      if (error.message.includes('rate limit') || error.message.includes('check_rate_limit')) {
+      if (response.status === 429) {
         return { success: false, error: 'Too many submission attempts. Please wait before trying again.' };
       }
 
-      if (error.message.includes('duplicate key') || error.message.includes('unique constraint')) {
+      if (response.status === 409) {
         return { success: false, error: 'This email is already registered for our waitlist.' };
       }
 
-      if (error.message.includes('invalid input') || error.message.includes('validation')) {
+      if (response.status === 400) {
         return { success: false, error: 'Please check your input and try again.' };
       }
 
       return { success: false, error: 'Unable to join waitlist. Please try again later.' };
     }
 
+    const result = await response.json();
     return { success: true, data: result }
   } catch (error) {
     console.error('Network error:', error)
