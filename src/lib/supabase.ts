@@ -1,5 +1,5 @@
 // Webhook URL for form submissions
-const WEBHOOK_URL = 'https://n8n.pingerchips.com/webhook-test/apply-form'
+const WEBHOOK_URL = 'https://n8n.pingerchips.com/webhook/apply-form'
 
 // Types for our waitlist table
 export interface WaitlistEntry {
