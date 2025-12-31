@@ -1,10 +1,7 @@
-import React from 'react'
-import { ViteSSG } from 'vite-ssg/single-page'
+import { ViteReactSSG } from 'vite-react-ssg'
 import App from './App.tsx'
 import './index.css'
 
-export const createApp = ViteSSG(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+export const createRoot = ViteReactSSG(
+  { routes: [{ path: '/', Component: App }] }
 )
